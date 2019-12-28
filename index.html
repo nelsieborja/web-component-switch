@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>gorgui-switch demo</title>
+    <meta charset="UTF-8" />
+    <script type="module" src="src/switch.ts"></script>
+  </head>
+
+  <body>
+    <p>State: <span style="color:green">true</span></p>
+    <gorgui-switch checked></gorgui-switch>
+    <script>
+      const $span = document.querySelector("span");
+      const $switch = document.querySelector("gorgui-switch");
+      $switch.addEventListener("change", e => {
+        $span.innerHTML = e.target.checked;
+        $span.style.color = e.target.checked ? "green" : "red";
+      });
+    </script>
+  </body>
+</html>
