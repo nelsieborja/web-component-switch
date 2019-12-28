@@ -18,18 +18,21 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
   template.innerHTML = `
       <style>
         :host {
+          /* Reset*/
+          box-sizing: border-box;
+          cursor: pointer;
+          outline: none;
+          user-select: none;
+
+          /* Common */
+          display: inline-flex;
           height: 42px;
           width: 58px;
+          transition: transform 150ms ease-out, background 150ms ease-out, box-shadow 150ms ease-out;
 
-          display: inline-flex;
-          align-items: center;
-
-          box-sizing: border-box;
           border: 1px solid #e0ecf1;
           border-radius: 42px;
-          cursor: pointer;
           position: relative;
-          transition: background-color .3s;
         }
 
         :host:after {
@@ -46,8 +49,23 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
           transition: .3s ease;
         }
 
+        :host(:hover) {
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
+          transform: translate3d(0px, -2px, 0px);
+        }
+
+        :host(:active) {
+          transform: translate3d(0, 0, 0);
+        }
         :host(:active):after {
           width: 42px;
+        }
+
+        :host(:focus) {
+          box-shadow: #e0ecf1 0px 1px 9px 2px;
+        }
+        :host(:focus:hover) {
+          box-shadow: #ebf3f7 0px 8px 18px 0px;
         }
 
         :host([checked]) {
@@ -117,7 +135,12 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
       this.addEventListener("keyup", this._onKeyUp);
       this.addEventListener("click", this._onClick);
 
-      console.log("gorgui-toggle is added to the DOM");
+      console.log(
+        "%c🦋%cgorgui-switch%c is added to the DOM",
+        "",
+        "font-family: monospace; color: #00c6ff",
+        ""
+      );
     }
 
     /**
@@ -129,7 +152,12 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
       this.removeEventListener("keyup", this._onKeyUp);
       this.removeEventListener("click", this._onClick);
 
-      console.log("gorgui-toggle is removed from the DOM");
+      console.log(
+        "%c🦋%cgorgui-switch%c is removed from the DOM",
+        "",
+        "font-family: monospace; color: #00c6ff",
+        ""
+      );
     }
 
     // Property to attribute reflection
@@ -192,7 +220,12 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
      * i.e. someone called document.adoptNode(element), or in general dealing with <iframe/> elements
      */
     adoptedCallback() {
-      console.log("I am adopted!");
+      console.log(
+        "%c🦋%cgorgui-switch%c is has been adopted",
+        "",
+        "font-family: monospace; color: #00c6ff",
+        ""
+      );
     }
 
     _onKeyUp(event: KeyboardEvent) {
@@ -235,7 +268,7 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
       );
     }
 
-    _upgradeProperty(prop) {
+    _upgradeProperty(prop: string) {
       if (this.hasOwnProperty(prop)) {
         const value = this[prop];
         delete this[prop];
