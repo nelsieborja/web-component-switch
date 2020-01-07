@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <script type="module" src="src/button.ts"></script>
     <script type="module" src="src/switch.ts"></script>
+    <script type="module" src="src/radio.ts"></script>
   </head>
 
   <body>
     <gorgui-button>Button</gorgui-button>
+    <gorgui-button disabled>Button</gorgui-button>
     <script>
       let counter = 0;
       const $button = document.querySelector("gorgui-button");
@@ -18,14 +20,28 @@
     </script>
 
     <hr />
-    <p>State: <span style="color:green">true</span></p>
+    <p>State: <span id="switch" style="color:green">true</span></p>
     <gorgui-switch checked></gorgui-switch>
+    <gorgui-switch disabled></gorgui-switch>
     <script>
-      const $span = document.querySelector("span");
+      const $spanswitch = document.querySelector("span#switch");
       const $switch = document.querySelector("gorgui-switch");
       $switch.addEventListener("change", e => {
-        $span.innerHTML = e.target.checked;
-        $span.style.color = e.target.checked ? "green" : "red";
+        $spanswitch.innerHTML = e.target.checked;
+        $spanswitch.style.color = e.target.checked ? "green" : "red";
+      });
+    </script>
+
+    <hr />
+    <p>State: <span id="radio" style="color:red">false</span></p>
+    <gorgui-radio></gorgui-radio>
+    <gorgui-radio disabled></gorgui-radio>
+    <script>
+      const $spanradio = document.querySelector("span#radio");
+      const $radio = document.querySelector("gorgui-radio");
+      $radio.addEventListener("change", e => {
+        $spanradio.innerHTML = e.target.checked;
+        $spanradio.style.color = e.target.checked ? "green" : "red";
       });
     </script>
   </body>

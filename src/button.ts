@@ -48,6 +48,12 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
         :host(:focus:hover) {
           box-shadow: #ebf3f7 0px 8px 18px 0px;
         }
+
+        :host([disabled]) {
+          cursor: not-allowed;
+          filter: grayscale(1);
+          opacity: 0.6;
+        }
       </style>
       <slot></slot>
     `;

@@ -46,11 +46,11 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
           background-color: #e0ecf1;
           border-radius: 36px;
           content: '';
-          transition: .3s ease;
+          transition: 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
         }
 
         :host(:hover) {
-          box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
+          box-shadow: #bfd5de 0px 2px 6px 0px;
           transform: translate3d(0px, -2px, 0px);
         }
 
@@ -71,7 +71,6 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
         :host([checked]) {
           background-color: #e0ecf1;
         }
-
         :host([checked]):after {
           background-color: #bfd5de;
           left: calc(100% - 2px);
@@ -80,7 +79,8 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
 
         :host([disabled]) {
           cursor: not-allowed;
-          opacity: 0.5;
+          filter: grayscale(1);
+          opacity: 0.6;
         }
       </style>
     `;
