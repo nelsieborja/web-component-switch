@@ -34,7 +34,7 @@ import "@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js";
 
         :host(:hover) {
           background: #bfd5de;
-          box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px 0px;
+          box-shadow: #bfd5de 0px 2px 6px 0px;
           transform: translate3d(0px, -2px, 0px);
         }
 
